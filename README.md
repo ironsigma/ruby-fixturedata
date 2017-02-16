@@ -105,14 +105,14 @@ The json files can contain special tokens, here's a sample order file:
 ```json
 {
 	"acme_order_101": {
-		"client_order_id": "$oid.to_s"
+		"client_order_id": "$oid.to_s",
 		"package_id": "$oid<acme-package-400>.to_s"
 		"client_ref": "$oid<clients.acme_corp>",
 		"items": [ "$oid<items.sku_100>", "$oid<items.sku_200>"],
 		"total": 301.24
 	},
 	"acme_order_102": {
-		"client_order_id": "$oid.to_s"
+		"client_order_id": "$oid.to_s",
 		"package_id": "$oid<acme-package-400>.to_s"
 		"client_ref": "$oid<clients.acme_corp>",
 		"items": [ "$oid<items.sku_300>", "$oid<items.sku_400>"],
@@ -134,7 +134,7 @@ acme_101 = $fixture_data.oid('orders.acme_order_101')
 acme_package = $fixture_data.oid('acme-package-400')
 ```
 
-**WARNING** ID are stored in the order they are parsed, so if you reference an ID make sure it was
+**WARNING** IDs are stored in the order they are parsed, so if you reference an ID make sure it was
 loaded before it's reference otherwise it will create a new one, and not match as expected. In our
 example we load clients, then items, and finally orders. because order contain clients and items.
 
@@ -144,11 +144,11 @@ Date tokens are also useful to create an reference just like `ObjectId`s. Here's
 
 ```json
 {
-	"sku_100" {
-		"name": "Scooter"
-		"released": "$isodate('1999-12-30T13:24:44.252-08:00')"
-		"available": "$isodate<toys-avail>.format('%a %b %e, %Y')"
-		"created": "$isodate<scooter-add_date>"
+	"sku_100": {
+		"name": "Scooter",
+		"released": "$isodate('1999-12-30T13:24:44.252-08:00')",
+		"available": "$isodate<toys-avail>.format('%a %b %e, %Y')",
+		"created": "$isodate<scooter-add_date>",
 		"updated": "$isodate<scooter-add_date>"
 	}
 }

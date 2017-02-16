@@ -180,3 +180,9 @@ And then execute:
 Or install it yourself as:
 
     $ gem install fixturedata
+
+## Release Notes
+
+### 1.0.0
+
+* Initial version
